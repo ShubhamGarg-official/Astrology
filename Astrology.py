@@ -1,7 +1,6 @@
 # streamlit_app.py
 import streamlit as st
 import datetime
-from fpdf import FPDF
 import io
 
 # --- Numerology Logic (Copied directly from your astro.py) ---
@@ -374,13 +373,3 @@ with tab2:
             st.markdown(f"**Unlucky Numbers:** {info['unlucky_numbers']}")
         
         st.write("---") # Divider
-
-        # --- PDF Download Button ---
-        pdf_data = create_pdf_report(data)
-        file_name = f"Numerology_Report_{data['dob'].strftime('%Y-%m-%d')}.pdf"
-        st.download_button(
-            label="📥 Export Full Report as PDF",
-            data=pdf_data,
-            file_name=file_name,
-            mime="application/pdf"
-        )
